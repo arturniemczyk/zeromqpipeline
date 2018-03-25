@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>responder</artifactId>
+    <artifactId>worker</artifactId>
 
     <build>
         <plugins>
@@ -18,11 +18,11 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.example.Responder</mainClass>
+                            <mainClass>com.example.Worker</mainClass>
                         </manifest>
                     </archive>
                     <appendAssemblyId>false</appendAssemblyId>
-                    <finalName>responder</finalName>
+                    <finalName>worker</finalName>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>requester</artifactId>
+    <artifactId>sink</artifactId>
 
     <build>
         <plugins>
@@ -18,11 +18,11 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.example.Requester</mainClass>
+                            <mainClass>com.example.Sink</mainClass>
                         </manifest>
                     </archive>
                     <appendAssemblyId>false</appendAssemblyId>
-                    <finalName>requester</finalName>
+                    <finalName>sink</finalName>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>

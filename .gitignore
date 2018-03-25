@@ -14,5 +14,6 @@
 
 *.iml
 ./target
-./publisher/target
-./subscriber/target
+./ventilator/target
+./worker/target
+./sink/target

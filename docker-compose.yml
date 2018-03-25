@@ -1,18 +1,51 @@
 version: '3'
 services:
-    requester:
+    ventilator:
         build: .
         volumes:
-            - ./requester/target:/home/zmq
-        command: ["java", "-jar", "/home/zmq/requester.jar"]
-
-
-    responder:
-        build: .
-        volumes:
-            - ./responder/target:/home/zmq
-        command: ["java", "-jar", "/home/zmq/responder.jar"]
-        ports:
-          - 5555:5555
+            - ./ventilator/target:/home/zmq
+        command: ["java", "-jar", "/home/zmq/ventilator.jar"]
         links:
-          - requester
+          - sink
+        depends_on:
+          - sink
+
+
+    worker:
+        build: .
+        volumes:
+            - ./worker/target:/home/zmq
+        command: ["java", "-jar", "/home/zmq/worker.jar"]
+        links:
+          - ventilator
+          - sink
+        depends_on:
+          - sink
+
+    worker2:
+        build: .
+        volumes:
+            - ./worker/target:/home/zmq
+        command: ["java", "-jar", "/home/zmq/worker.jar"]
+        links:
+          - ventilator
+          - sink
+        depends_on:
+          - sink
+
+    worker3:
+        build: .
+        volumes:
+            - ./worker/target:/home/zmq
+        command: ["java", "-jar", "/home/zmq/worker.jar"]
+        links:
+          - ventilator
+          - sink
+        depends_on:
+          - sink
+
+    sink:
+        build: .
+        volumes:
+            - ./sink/target:/home/zmq
+        command: ["java", "-jar", "/home/zmq/sink.jar"]
